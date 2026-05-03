@@ -1,0 +1,18 @@
+---
+layout: default
+title: "DIY Cleaning Products"
+permalink: /categories/diy-cleaning/
+---
+<div class="category-header">
+  <h1>🧹 DIY Cleaning Products</h1>
+  <p>Make your own cleaners with everyday household items — cheaper, greener, and surprisingly effective</p>
+</div>
+<div class="post-grid">
+  {% assign posts = site.posts | where_exp: "p", "p.categories contains 'DIY Cleaning'" %}
+  {% for post in posts %}
+  <div class="post-card">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </div>
+  {% endfor %}
+</div>

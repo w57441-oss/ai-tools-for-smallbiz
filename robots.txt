@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://w57441-oss.github.io/ai-tools-for-smallbiz/sitemap.xml

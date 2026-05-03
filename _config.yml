@@ -1,0 +1,37 @@
+title: "Home Hacks Daily"
+description: "DIY life hacks, homemade solutions, and clever tips using everyday items"
+url: "https://w57441-oss.github.io"
+baseurl: "/ai-tools-for-smallbiz"
+permalink: /:categories/:title/
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+paginate: 20
+paginate_path: "/page:num/"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+  - generate-articles.js
+
+include:
+  - robots.txt
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Home Hacks Daily"
+
+google_adsense: "ca-pub-XXXXXXXXXXXXXXXX"
+google_analytics: "G-XXXXXXXXXX"

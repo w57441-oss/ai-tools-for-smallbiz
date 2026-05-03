@@ -1,0 +1,18 @@
+---
+layout: default
+title: "Homemade Food & Drinks"
+permalink: /categories/homemade-food/
+---
+<div class="category-header">
+  <h1>🍦 Homemade Food & Drinks</h1>
+  <p>Make delicious food and drinks from scratch — ice cream, sauces, snacks, and more</p>
+</div>
+<div class="post-grid">
+  {% assign posts = site.posts | where_exp: "p", "p.categories contains 'Homemade Food'" %}
+  {% for post in posts %}
+  <div class="post-card">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </div>
+  {% endfor %}
+</div>

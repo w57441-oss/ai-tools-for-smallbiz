@@ -1,0 +1,18 @@
+---
+layout: default
+title: "DIY Beauty & Personal Care"
+permalink: /categories/beauty-care/
+---
+<div class="category-header">
+  <h1>✨ DIY Beauty & Personal Care</h1>
+  <p>Homemade skincare, haircare, and beauty products — natural and budget-friendly</p>
+</div>
+<div class="post-grid">
+  {% assign posts = site.posts | where_exp: "p", "p.categories contains 'Beauty Care'" %}
+  {% for post in posts %}
+  <div class="post-card">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </div>
+  {% endfor %}
+</div>

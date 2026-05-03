@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span class="category-tag">{{ page.categories | first }}</span>
+      <span class="reading-time">⏱ {{ content | number_of_words | divided_by: 200 | at_least: 1 }} min read</span>
+    </div>
+  </header>
+
+  <div class="ad-container ad-top">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot">{% include ad-unit.html slot="top" %}</div>
+  </div>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="ad-container ad-bottom">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot">{% include ad-unit.html slot="bottom" %}</div>
+  </div>
+
+  <section class="related-posts">
+    <h2>You Might Also Like</h2>
+    <div class="post-grid">
+      {% assign related_posts = site.posts | where_exp: "post", "post.categories contains page.categories.first" | where_exp: "post", "post.url != page.url" | sample: 4 %}
+      {% for post in related_posts %}
+      <div class="post-card">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</article>

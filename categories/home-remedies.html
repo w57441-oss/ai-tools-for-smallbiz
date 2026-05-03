@@ -1,0 +1,18 @@
+---
+layout: default
+title: "Home Remedies & Health"
+permalink: /categories/home-remedies/
+---
+<div class="category-header">
+  <h1>💊 Home Remedies & Health</h1>
+  <p>Natural remedies and health hacks using ingredients from your kitchen</p>
+</div>
+<div class="post-grid">
+  {% assign posts = site.posts | where_exp: "p", "p.categories contains 'Home Remedies'" %}
+  {% for post in posts %}
+  <div class="post-card">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </div>
+  {% endfor %}
+</div>

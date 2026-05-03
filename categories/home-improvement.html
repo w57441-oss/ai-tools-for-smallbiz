@@ -1,0 +1,18 @@
+---
+layout: default
+title: "Home Improvement Hacks"
+permalink: /categories/home-improvement/
+---
+<div class="category-header">
+  <h1>🔨 Home Improvement Hacks</h1>
+  <p>Clever fixes, organization tricks, and DIY solutions for every room in your house</p>
+</div>
+<div class="post-grid">
+  {% assign posts = site.posts | where_exp: "p", "p.categories contains 'Home Improvement'" %}
+  {% for post in posts %}
+  <div class="post-card">
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </div>
+  {% endfor %}
+</div>
